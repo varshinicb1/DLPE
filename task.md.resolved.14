@@ -1,0 +1,42 @@
+# CKAN API Harvester Task List
+
+- [x] Verify CKAN API endpoints for karnataka.data.gov.in <!-- id: 0 -->
+- [x] Create Implementation Plan for Harvester <!-- id: 1 -->
+- [x] Develop CKAN Harvester Notebook (Skipped in favor of local script) <!-- id: 2 -->
+- [x] Verify CKAN API endpoints for karnataka.data.gov.in <!-- id: 0 -->
+- [x] Create Implementation Plan for Harvester <!-- id: 1 -->
+- [x] Develop CKAN Harvester Notebook (Skipped in favor of local script) <!-- id: 2 -->
+- [ ] Research Hugging Face for Indian Agri Datasets <!-- id: 15 -->
+- [x] Verify CKAN API endpoints for karnataka.data.gov.in <!-- id: 0 -->
+- [x] Create Implementation Plan for Harvester <!-- id: 1 -->
+- [x] Develop CKAN Harvester Notebook (Skipped in favor of local script) <!-- id: 2 -->
+- [x] Research Hugging Face for Indian Agri Datasets <!-- id: 15 -->
+- [x] Verify CKAN API endpoints for karnataka.data.gov.in <!-- id: 0 -->
+- [x] Create Implementation Plan for Harvester <!-- id: 1 -->
+- [x] Develop CKAN Harvester Notebook (Skipped in favor of local script) <!-- id: 2 -->
+- [x] Research Hugging Face for Indian Agri Datasets <!-- id: 15 -->
+- [x] Implement Local DLPE Ingestion Script ([dlpe_ingest_no_api.py](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/dlpe_ingest_no_api.py)) <!-- id: 9 -->
+    - [x] Setup Local Python Environment (Install datasets, pandas, xgboost) <!-- id: 10 -->
+    - [x] Implement GitHub Raw CSV Loader <!-- id: 11 -->
+    - [x] Implement Schema Normalization for Merged Dataset <!-- id: 16 -->
+    - [x] Execute Ingestion & Training locally (Full India) <!-- id: 13 -->
+- [x] Verify Output (`district_feature_store.csv`) <!-- id: 14 -->
+
+## Phase 2: Distress Signals (Migration Proxy)
+- [x] Research MNREGA / Rural Employment Datasets <!-- id: 17 -->
+- [x] Ingest MNREGA Data (District-wise Demand) <!-- id: 18 -->
+    - [x] normalize/merge script [dlpe_ingest_mnrega.py](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/dlpe_ingest_mnrega.py) <!-- id: 21 -->
+- [x] Merge with Crop Feature Store ([district_feature_store_no_api.csv](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/district_feature_store_no_api.csv)) <!-- id: 19 -->
+- [x] Train Multi-Variate Risk Model (Crop + MNREGA) <!-- id: 20 -->
+    - [x] Create [train_distress_model.py](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/train_distress_model.py) <!-- id: 22 -->
+
+## Phase 3: Temporal Intelligence (Early Warning)
+- [x] Create Temporal Feature Store (Lagged Indicators) <!-- id: 23 -->
+    - [x] [dlpe_temporal_features.py](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/dlpe_temporal_features.py): Add Yield_T-1, Rain_T-1 <!-- id: 24 -->
+- [x] Train "Early Warning" Model (Predict T using T-1) <!-- id: 25 -->
+    - [x] Compare `Model_Static` vs `Model_Temporal` <!-- id: 26 -->
+
+## Phase 4: Knowledge Graph Construction (Layer 3)
+- [x] Design Ontology (Districts, Crops, Rainfall, Distress) <!-- id: 27 -->
+- [/] Build Graph Construction Script (`dlpe_build_graph.py`) <!-- id: 28 -->
+- [ ] Visualize District Graph <!-- id: 29 -->

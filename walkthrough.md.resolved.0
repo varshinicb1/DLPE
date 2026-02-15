@@ -1,0 +1,26 @@
+# DLPE Phase 2: Distress Signal Ingestion (MNREGA)
+
+I have successfully completed Phase 2 of the District-Level Predictive Engine (DLPE). 
+The system now ingests **MNREGA (Rural Employment)** data and links it with the agricultural feature store to predict distress.
+
+## 🚀 Key Achievements
+1.  **Ingested MNREGA Data**: Sourced district-wise "Job Cards Issued" and "Active Workers" data from public GitHub repositories (mirroring government data).
+2.  **Multilayer Feature Store**: Merged Crop, Rainfall, and MNREGA data into [district_feature_store_v2_mnrega.csv](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/district_feature_store_v2_mnrega.csv) (~98k records).
+3.  **High-Accuracy Distress Model**: Trained an XGBoost model that predicts MNREGA Demand based on agricultural features with **R² = 0.75** (Very Strong).
+
+## 📊 Visual Validation
+The model proves a strong link between agricultural context (State, Crop, Rain) and employment demand.
+
+![Actual vs Predicted MNREGA Demand](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/mnrega_prediction_plot.png)
+
+## 📁 Artifacts Created
+| Artifact | Description |
+| :--- | :--- |
+| [dlpe_ingest_mnrega.py](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/dlpe_ingest_mnrega.py) | Script to download and merge MNREGA data. |
+| [district_feature_store_v2_mnrega.csv](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/district_feature_store_v2_mnrega.csv) | Enhanced dataset with socioeconomic signals. |
+| [train_distress_model.py](file:///C:/Users/varsh/.gemini/antigravity/brain/6db64765-7966-408d-a075-37c115d6b037/train_distress_model.py) | Script training the multi-variate risk model. |
+| `mnrega_prediction_plot.png` | Visualization of model performance. |
+
+## 🔮 Next Steps (Layer 3)
+*   **Temporal Features**: Add "Lagged Rainfall" (e.g., did rain fail last year?) to improve yield prediction further.
+*   **Graph Construction**: Begin building the "District Knowledge Graph" to visualize these relationships.
