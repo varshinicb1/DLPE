@@ -46,3 +46,9 @@
 - [x] Implement "District Profiler" (Vulnerability + Graph View) <!-- id: 31 -->
 - [x] Implement "Early Warning Simulator" (Input Yield -> Predict Distress) <!-- id: 32 -->
 - [x] Final Verification & Launch <!-- id: 33 -->
+
+## Phase 6: Deployment & Polish
+- [ ] Cleanup Repository (Remove artifacts) <!-- id: 34 -->
+- [ ] Create `README.md` (Documentation) <!-- id: 35 -->
+- [ ] Create `Dockerfile` (Containerization) <!-- id: 36 -->
+- [ ] Push to GitHub <!-- id: 37 -->
