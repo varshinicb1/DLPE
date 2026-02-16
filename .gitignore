@@ -17,3 +17,7 @@ kissan/data/ingest/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Internal System Metadata
+*.resolved*
+*.metada*
