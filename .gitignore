@@ -1,0 +1,19 @@
+# Models (Heavy binaries)
+*.pt
+*.bin
+*.pth
+kissan/models/
+
+# Vector DB
+kissan/data/chroma_db/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Data landing zone
+kissan/data/ingest/
+
+# OS files
+.DS_Store
+Thumbs.db

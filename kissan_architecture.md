@@ -1,0 +1,57 @@
+# Project Kissan: The Offline Farmer's Companion 🚜
+
+## Vision
+Create a **voice-first, internet-independent AI device** that runs locally on affordable hardware (SBCs) to assist Indian farmers with hyper-local agricultural knowledge in their native language (Kannada).
+
+## The "No-Internet" Constraint
+To function without internet, we cannot use cloud APIs (OpenAI, Google Cloud). We must run **everything locally**.
+This requires **Edge AI**: Running optimized models on restricted hardware (Raspberry Pi 5 / Jetson Orin).
+
+## Architecture Stack
+
+### 1. Hardware (The "Box")
+*   **Device**: Raspberry Pi 5 (8GB RAM) or NVIDIA Jetson Orin Nano.
+*   **Storage**: NVMe SSD (Fast retrieval of knowledge).
+*   **Peripherals**: Solar battery pack, Microphone array, Speaker.
+
+### 2. The "Brain" (Local LLM)
+*   **Challenge**: Standard LLMs (GPT-4) are too big.
+*   **Solution**: **Small Language Models (SLMs)**.
+    *   **Choice**: `Gemma-2-2b-it` (Google) or `Llama-3-8B-Instruct` (Meta).
+    *   **Optimization**: **4-bit Quantization** (GGUF format) to fit in 4-6GB RAM using `llama.cpp`.
+*   **Language**: **Fine-Tuning** (not teaching from scratch).
+    *   We take a pre-trained model (like Gemma) and **Fine-Tune (SFT)** it on:
+        1.  Kannada Agriculture Handbooks (UAS Dharwad/Bangalore PDFs).
+        2.  Translated "Crops of India" dataset.
+        3.  Our `district_vulnerability_graph` (converted to text facts).
+
+### 3. Knowledge Base (RAG at the Edge)
+The model can't hallucinate. It needs facts.
+*   **Vector Database**: `ChromaDB` or `FAISS` running locally.
+*   **Content**:
+    *   Ingest the **Knowledge Graph** we just built (e.g., "Garhwa has 45% risk of Rice failure").
+    *   Ingest Local Government Schemes (Raitha Samparka Kendra details).
+*   **Process**: User asks question -> System searches local DB -> Feeds facts to Local LLM -> LLM answers.
+
+### 4. Voice Interface (Kannada)
+*   **Speech-to-Text (STT)**: `Whisper-Tiny` (OpenAI, distilled) or `Vosk` (Offline, lightweight).
+*   **Text-to-Speech (TTS)**: `Piper` (runs on Raspberry Pi, sounds natural) or `Coqui TTS`.
+
+## Implementation Roadmap
+
+### Phase 1: The "Brain" Prototype (PC Simulated)
+1.  **Model Selection**: Download `Gemma-2-2b-it-GGUF`.
+2.  **RAG Setup**: Create a local Vector Store from our `district_crop_risk_graph.gml` and some Kannada text.
+3.  **Inference**: Create a Python script using `llama-cpp-python` to chat with the data offline.
+
+### Phase 2: Language Adaptation (Kannada)
+1.  **Data Collection**: Scrape/Download Kannada agricultural PDFs.
+2.  **LoRA Fine-Tuning**: Efficiently fine-tune the model to understand Kannada agri-terms better (using Unsloth).
+
+### Phase 3: Hardware Deployment
+1.  Flash OS to Raspberry Pi.
+2.  Deploy the quantized model and RAG system.
+3.  Connect Mic/Speaker and integration `Whisper` + `Piper`.
+
+## Why this changes everything?
+Instead of a dashboard for a bureaucrat in Delhi, this puts the "Scientist" (the AI) directly in the hands of the farmer in the field, speaking their language, without needing a signal tower.

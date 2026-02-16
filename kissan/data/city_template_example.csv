@@ -1,0 +1,6 @@
+District,Soil_Type,pH,Nitrogen,Phosphorus,Potash,Commodity,Modal_Price,Last_Updated
+Belgaum,Black Cotton,7.2,50,40,30,Rice,46.85,2024-02-16
+Bhopal,Alluvial,6.8,45,35,25,Wheat,32.50,2024-02-16
+Garhwa,Laterite,5.5,30,20,15,Maize,22.10,2024-02-16
+# Add any city/district here. 
+# The Orchestrator will detect this file and retrain the KissanGPT brain automatically.
