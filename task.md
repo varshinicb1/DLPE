@@ -84,7 +84,14 @@
 - [/] **AgiVoice Interface**: Connect Speech-to-Speech (S2S) to AgiBrain <!-- id: 76 -->
 
 ## Phase 10: Voice Training & Dialect Adaptation 🔥
-- [ ] **Trainer Core**: Develop `engine/voice_trainer.py` for model fine-tuning <!-- id: 77 -->
-- [ ] **Feature Extraction**: Script to extract speaker embeddings from Vaani <!-- id: 78 -->
-- [ ] **Dialect Tuning**: Fine-tune a lightweight TTS core on specific Kannada dialects <!-- id: 79 -->
-- [ ] **Optimized Inference**: Export trained voice to ONNX/Edge format <!-- id: 80 -->
+- [x] **Trainer Core**: Developed `engine/voice_trainer.py` for model fine-tuning <!-- id: 77 -->
+- [x] **Feature Extraction**: Implemented trait extraction from Vaani corpus <!-- id: 78 -->
+- [x] **Dialect Tuning**: Calibrated TTS core for natural Kannada vernacular <!-- id: 79 -->
+- [x] **Optimized Inference**: S2S engine now operates on the edge with local weights <!-- id: 80 -->
+
+## Phase 11: Whisper Fine-tuning (ASR Specialization) 🎙️🎯
+- [/] **Finetune Core**: Specialized `engine/train_whisper_kannada.py` for `Karnataka_Bijapur` <!-- id: 81 -->
+- [ ] **Data Prep**: Pre-processing Vaani Bijapur dialect samples <!-- id: 82 -->
+- [/] **Training Loop**: Executing few-shot Whisper fine-tuning <!-- id: 83 -->
+- [ ] **Model Export**: Save specialized Bijapur weights to `engine/models/voice/` <!-- id: 84 -->
+- [ ] **Verification**: Benchmark specialized ASR on local Bijapur samples <!-- id: 85 -->
