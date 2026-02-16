@@ -76,8 +76,9 @@
 - [x] **Synthesis**: Integrate Nano weights with RAG System <!-- id: 48 -->
 - [x] **Verification**: Run `query()` test <!-- id: 49 -->
 
-## Phase 8: End-to-End System Verification 🧪
-- [x] **Domain Test (Agriculture)**: Verified price/soil advice with real Mandi data <!-- id: 68 -->
-- [x] **Domain Test (Animal Husbandry)**: Verified health advice with cattle diagnostics <!-- id: 69 -->
-- [x] **Scraper Connectivity**: Agent successfully reached and downloaded GitHub mirrors <!-- id: 70 -->
-- [x] **Full Loop Sync**: Confirmed Orchestrator partitioning and Brain indexing <!-- id: 71 -->
+## Phase 9: Vaani Voice Integration (S2S) 🎙️
+- [ ] **Data Acquisition**: Download & Parse Vaani Kannada speech corpus <!-- id: 72 -->
+- [ ] **Voice Scraper**: Update `engine/scraper_agent.py` to handle HF Audio datasets <!-- id: 73 -->
+- [ ] **STT Engine**: Implement local ASR (Automatic Speech Recognition) for Kannada <!-- id: 74 -->
+- [ ] **TTS Engine**: Implement natural Kannada voice synthesis using Vaani traits <!-- id: 75 -->
+- [ ] **AgiVoice Interface**: Connect Speech-to-Speech (S2S) to AgiBrain <!-- id: 76 -->

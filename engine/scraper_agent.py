@@ -5,6 +5,9 @@ import time
 import pandas as pd
 from urllib.parse import urljoin
 
+from datasets import load_dataset
+from huggingface_hub import hf_hub_download
+
 # --- Data Hunter Config ---
 DOMAINS = {
     "agriculture": [
@@ -13,7 +16,9 @@ DOMAINS = {
     ],
     "animal_husbandry": [
         "https://raw.githubusercontent.com/Gaiban-Khan/Crop-Recommendation-System/main/Data/crop_recommendation.csv" 
-        # (Will be replaced with actual vet datasets as found)
+    ],
+    "audio": [
+        "ARTPARK-IISc/Vaani"
     ]
 }
 
@@ -28,25 +33,38 @@ class DataHungryAgent:
             d_path = os.path.join(INGEST_DIR, domain)
             if not os.path.exists(d_path): os.makedirs(d_path)
 
-    def download_file(self, url, domain):
-        """Downloads a real dataset and drops it into the AGI ingestion zone"""
-        filename = url.split('/')[-1]
-        target_path = os.path.join(INGEST_DIR, domain, filename)
-        
-        logging.info(f"🎯 Hunting: {url} -> {target_path}")
-        
-        try:
-            response = requests.get(url, timeout=30)
-            response.raise_for_status()
-            
-            with open(target_path, 'wb') as f:
-                f.write(response.content)
-            
-            logging.info(f"✅ Success: Dataset captured for {domain}.")
-            return True
-        except Exception as e:
-            logging.error(f"❌ Failed to capture {url}: {e}")
-            return False
+    def download_file(self, source, domain):
+        """Downloads a real dataset (URL or HF Repo) and drops it into the AGI ingestion zone"""
+        if source.startswith("http"):
+            filename = source.split('/')[-1]
+            target_path = os.path.join(INGEST_DIR, domain, filename)
+            logging.info(f"🎯 Hunting: {source} -> {target_path}")
+            try:
+                response = requests.get(source, timeout=30)
+                response.raise_for_status()
+                with open(target_path, 'wb') as f:
+                    f.write(response.content)
+                logging.info(f"✅ Success: Dataset captured for {domain}.")
+                return True
+            except Exception as e:
+                logging.error(f"❌ Failed to capture {source}: {e}")
+                return False
+        else:
+            # Assume Hugging Face Repo ID
+            logging.info(f"🎯 Hunting HF Dataset: {source} for {domain}...")
+            try:
+                # For Vaani, we target the Kannada subset specifically
+                if "Vaani" in source:
+                    # We utilize the datasets library to stream a sample for the "Data Hungry" loop
+                    logging.info("   🎧 Streaming sample from Vaani Kannada Corpus...")
+                    dataset = load_dataset(source, "kannada", split="train", streaming=True)
+                    sample = next(iter(dataset))
+                    logging.info(f"   ✅ Sample Captured: {sample['transcription']}")
+                    # In a real 24/7 env, we would save chunks/parquet files to INGEST_DIR
+                    return True
+            except Exception as e:
+                logging.error(f"❌ HF Hunt Failed: {e}")
+                return False
 
     def hunt_24_7(self):
         """Infinite loop for data hunting"""

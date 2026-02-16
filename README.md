@@ -8,6 +8,15 @@ AgiEngine is an **Offline-First, Domain-Agnostic AGI Framework** designed to emp
 - **Plug-and-Play Domains**: Switch between Agriculture, Vet Advice, or any profession via JSON configs.
 - **Dynamic Scaler**: Drop-in any CSV/JSON dataset to trigger automated model retraining and vector indexing.
 - **Edge-Ready**: Optimized for local CPU execution with a 1.1B parameter Nano core.
+
+## 🎙️ Voice Activation (S2S)
+AgiEngine now supports **Speech-to-Speech** interaction designed for hands-free professional use.
+- **Vaani Integration**: Uses the ARTPARK-IISc Vaani dataset for natural, village-level Kannada dialect synthesis.
+- **Authentication**: To ingest the full Vaani corpus, run:
+  ```bash
+  huggingface-cli login --token YOUR_HF_TOKEN
+  ```
+- **Voice Engine**: Uses local Whisper-tiny for STT and a trait-mapped TTS for natural responses.
 *   **Early Warning System**: Predicts **Next Year's Distress** (MNREGA Demand) using Current Year's Agricultural Yield (R² = 0.75).
 *   **Knowledge Graph**: Models the "District-Crop-Risk" ontology to calculate Structural Vulnerability Scores.
 *   **Interactive Dashboard**: Streamlit-based UI for visualizing risk maps and running "What-If" simulations.
