@@ -1,6 +1,0 @@
-llama-cpp-python
-chromadb
-sentence-transformers
-networkx
-pandas
-numpy

@@ -1,0 +1,19 @@
+{
+    "domain": "agriculture",
+    "name": "KissanAI (Agriculture)",
+    "advice_header": "ಕೃಷಿ ಸಲಹೆ (Agricultural Advice)",
+    "mappings": {
+        "HIGH": {
+            "status": "🔴 ಅಪಾಯಕಾರಿ (HIGH RISK)",
+            "advice": "ಖಂಡಿತವಾಗಿಯೂ ಬೆಳೆಯಬೇಡಿ! ಪರಿಸ್ಥಿತಿ ಈ ಬೆಳೆಗೆ ಪೂರಕವಾಗಿಲ್ಲ."
+        },
+        "MODERATE": {
+            "status": "🟡 ಎಚ್ಚರಿಕೆ (CAUTION)",
+            "advice": "ಬೆಳೆಯಬಹುದು, ಆದರೆ ಜಾಗರೂಕರಾಗಿರಿ. ಕಾಲಕಾಲಕ್ಕೆ ನೀರು ಮತ್ತು ಗೊಬ್ಬರ ಬಳಸಿ."
+        },
+        "LOW": {
+            "status": "🟢 ಸುರಕ್ಷಿತ (SAFE)",
+            "advice": "ಬಿತ್ತನೆ ಮಾಡಲು ಇದು ಸಕಾಲ! ಪರಿಸ್ಥಿತಿ ತುಂಬಾ ಚೆನ್ನಾಗಿದೆ."
+        }
+    }
+}

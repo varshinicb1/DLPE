@@ -1,13 +1,13 @@
-# Distress Watch: District-Level Predictive Engine (DLPE) 📡
+# AgiEngine: Multi-Profession Intelligence Framework 🏛️
 
-**Distress Watch** is a predictive analytics system designed to forecast rural distress and migration signals in India using satellite-based agricultural data and MNREGA employment demand statistics.
-
-The system uses machine learning (XGBoost) and Graph Theory to identify structurally vulnerable districts 12 months in advance.
+AgiEngine is an **Offline-First, Domain-Agnostic AGI Framework** designed to empower local communities and professions with data-backed intelligence. Originally built for Indian Farmers (KissanGPT), it can now be adapted for any field—Animal Husbandry, Healthcare, Education, and more.
 
 ![Dashboard Preview](vulnerability_ranking_plot.png)
 
 ## 🚀 Key Features
-*   **Ingestion Engine**: Aggregates 18 years of District-wise Crop Production (1997-2015), Rainfall, and MNREGA Job Card data.
+- **Plug-and-Play Domains**: Switch between Agriculture, Vet Advice, or any profession via JSON configs.
+- **Dynamic Scaler**: Drop-in any CSV/JSON dataset to trigger automated model retraining and vector indexing.
+- **Edge-Ready**: Optimized for local CPU execution with a 1.1B parameter Nano core.
 *   **Early Warning System**: Predicts **Next Year's Distress** (MNREGA Demand) using Current Year's Agricultural Yield (R² = 0.75).
 *   **Knowledge Graph**: Models the "District-Crop-Risk" ontology to calculate Structural Vulnerability Scores.
 *   **Interactive Dashboard**: Streamlit-based UI for visualizing risk maps and running "What-If" simulations.

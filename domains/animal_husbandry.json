@@ -1,0 +1,19 @@
+{
+    "domain": "animal_husbandry",
+    "name": "VetGPT (Animal Husbandry)",
+    "advice_header": "Veterinary Medical Advice",
+    "mappings": {
+        "HIGH": {
+            "status": "🆘 CRITICAL CONDITION",
+            "advice": "Isolate the animal immediately and call a vet. Disease spreading risk is high."
+        },
+        "MODERATE": {
+            "status": "⚠️ OBSERVATION",
+            "advice": "Animal shows sub-optimal health markers. Monitor vitals and adjust feed."
+        },
+        "LOW": {
+            "status": "🛡️ HEALTHY STOCK",
+            "advice": "Animal health markers are within normal range. Continue standard care."
+        }
+    }
+}

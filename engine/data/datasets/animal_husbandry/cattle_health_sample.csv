@@ -1,0 +1,5 @@
+Cattle_ID,Breed,Age_Years,Symptoms,Last_Vaccination,Health_Status,Advice_Needed
+C001,Gir,5,Fever,2023-11-01,Normal,Routine Checkup
+C002,Red Sindhi,3,Limping,2023-09-15,Moderate,Check for hoof infection
+C003,Holstein,4,High Fever - Blisters,2023-05-10,High,Immediate Vet Attention Required (FMD Risk)
+C004,Jersey,6,None,2024-01-20,Low,Healthy stock
