@@ -77,8 +77,14 @@
 - [x] **Verification**: Run `query()` test <!-- id: 49 -->
 
 ## Phase 9: Vaani Voice Integration (S2S) 🎙️
-- [ ] **Data Acquisition**: Download & Parse Vaani Kannada speech corpus <!-- id: 72 -->
-- [ ] **Voice Scraper**: Update `engine/scraper_agent.py` to handle HF Audio datasets <!-- id: 73 -->
-- [ ] **STT Engine**: Implement local ASR (Automatic Speech Recognition) for Kannada <!-- id: 74 -->
+- [x] **Data Acquisition**: Authenticated via HF Token; accessed Vaani Kannada corpus <!-- id: 72 -->
+- [x] **Voice Scraper**: Scraper Agent now supports HF gated streaming <!-- id: 73 -->
+- [x] **STT Engine**: Local Whisper-tiny STT implementation complete <!-- id: 74 -->
 - [ ] **TTS Engine**: Implement natural Kannada voice synthesis using Vaani traits <!-- id: 75 -->
-- [ ] **AgiVoice Interface**: Connect Speech-to-Speech (S2S) to AgiBrain <!-- id: 76 -->
+- [/] **AgiVoice Interface**: Connect Speech-to-Speech (S2S) to AgiBrain <!-- id: 76 -->
+
+## Phase 10: Voice Training & Dialect Adaptation 🔥
+- [ ] **Trainer Core**: Develop `engine/voice_trainer.py` for model fine-tuning <!-- id: 77 -->
+- [ ] **Feature Extraction**: Script to extract speaker embeddings from Vaani <!-- id: 78 -->
+- [ ] **Dialect Tuning**: Fine-tune a lightweight TTS core on specific Kannada dialects <!-- id: 79 -->
+- [ ] **Optimized Inference**: Export trained voice to ONNX/Edge format <!-- id: 80 -->

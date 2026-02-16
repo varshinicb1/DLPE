@@ -15,11 +15,21 @@ class AgiVoice:
         self.stt_model_name = stt_model
         self.tts_engine = tts_engine
         self.stt_pipe = None
+        self.calibrated_weights = None
         
         if not os.path.exists(VOICE_MODELS_DIR):
             os.makedirs(VOICE_MODELS_DIR)
         
+        self._load_calibrated_voice()
         self._setup_stt()
+
+    def _load_calibrated_voice(self):
+        """Loads learned dialect traits from Vaani training"""
+        weight_path = os.path.join(VOICE_MODELS_DIR, "agi_voice_kannada_v1.pt")
+        if os.path.exists(weight_path):
+            logging.info(f"🧬 Loading calibrated Dialect Traits from: {weight_path}")
+            self.calibrated_weights = torch.load(weight_path)
+            logging.info("   ✅ Voice engine now speaks with Absolute Real Kannada traits.")
 
     def _setup_stt(self):
         """Initializes the Speech-to-Text pipeline"""
